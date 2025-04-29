@@ -8,6 +8,7 @@ import java.util.Date;
 
 @Getter
 @Setter
+@MappedSuperclass
 public abstract class BaseModal {
     @Id
     private Long id;
