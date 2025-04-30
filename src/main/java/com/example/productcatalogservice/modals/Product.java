@@ -6,6 +6,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @Entity
@@ -17,4 +19,12 @@ public class Product extends BaseModal {
     @ManyToOne(cascade = CascadeType.ALL)
     private Category category;
     private Boolean isPrime;
+
+    public Product(){
+        this.setCreatedAt(new Date());
+        this.setUpdatedAt(new Date());
+        this.setState(State.ACTIVE);
+    }
 }
+
+
