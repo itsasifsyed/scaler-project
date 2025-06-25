@@ -2,6 +2,7 @@ package com.example.productcatalogservice.repos;
 
 import com.example.productcatalogservice.modals.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,4 +15,13 @@ public interface ProductRepo extends JpaRepository<Product, Long> {
     List<Product> findAll();
 
     void deleteById(Long id);
+
+    List<Product> findProductByOrderByPriceDesc();
+
+    @Query("select p.name from Product p where p.id=?1")
+    String findProductNameById(Long id);
+
+
+    @Query("select c.name from Category  c join Product  p on p.category.id=c.id where p.id=:pid")
+    String findCategoryNameFromProductId(Long pid);
 }

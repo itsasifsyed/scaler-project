@@ -3,7 +3,6 @@ package com.example.productcatalogservice.services;
 import com.example.productcatalogservice.modals.Product;
 import com.example.productcatalogservice.repos.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,8 +21,7 @@ public class StorageProductService implements IProductService {
 
     @Override
     public List<Product> getAllProducts() {
-        List<Product> products =   productRepo.findAll();
-        return products;
+        return  productRepo.findAll();
     }
 
     @Override
