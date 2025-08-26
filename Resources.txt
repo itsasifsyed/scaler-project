@@ -1,4 +1,4 @@
 Connecting to mysql from spring boot: https://spring.io/guides/gs/accessing-data-mysql
 
-Git hub repo of instructor: https://github.com/ak-s-0723/ProductCatalogServiceFeb2025
+Git hub repo of instructor:
 
