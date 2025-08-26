@@ -1,5 +1,6 @@
 package com.example.productcatalogservice.modals;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +18,8 @@ public class Category extends BaseModal implements Serializable {
     private String name;
     private String description;
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    @Fetch(FetchMode.JOIN)
-    @BatchSize(size = 2)
+//    @Fetch(FetchMode.JOIN)
+//    @BatchSize(size = 2)
+    @JsonBackReference
     private List<Product> products;
 }
