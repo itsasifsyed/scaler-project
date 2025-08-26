@@ -29,6 +29,8 @@ public class ProductController {
     public ProductDto getProductDetails(@PathVariable Long id) {
         if(id < 0) {
             throw new IllegalArgumentException("Please pass productId greater than 0");
+        } else if(id == 0) {
+            throw new IllegalArgumentException("Please pass positive productId");
         }
         Product product = productService.getProductById(id);
         if(product == null) return null;

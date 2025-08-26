@@ -1,17 +1,20 @@
 package com.example.productcatalogservice.modals;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Getter
 @Setter
 @Entity
-public class Product extends BaseModal {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class Product extends BaseModal implements Serializable {
     private String name;
     private String description;
     private String imageUrl;

@@ -5,6 +5,7 @@ import com.example.productcatalogservice.modals.Category;
 import com.example.productcatalogservice.modals.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.*;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
@@ -12,11 +13,15 @@ import org.springframework.web.client.RequestCallback;
 import org.springframework.web.client.ResponseExtractor;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.http.MediaType;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service("fake-store-service")
+@Primary
 public class FakeStoreProductService implements IProductService {
 
     @Autowired
